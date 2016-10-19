@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Petition App - Home</title>
+</head>
+{{> head}}
+<body>
+
+    {{> header}}
+
+    <div class="container">
+        <p>We the undersigned demand that</p>
+
+
+        {{#each persons}}
+        <p> {{firstname}} {{lastname}} ({{age}})</p>
+        {{/each}}
+
+    </div>
+
+</body>
+</html>

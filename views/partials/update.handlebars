@@ -1,0 +1,33 @@
+<div class="container">
+    <form id="form" method ="post">
+        <div class="form-group">
+            <label for="email">First Name:</label>
+            <input type="text" class="form-control" id="first"  name="firstname" value="{{user.firstname}}">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Family Name:</label>
+            <input type="text" class="form-control" id="family" name="lastname" value="{{user.lastname}}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email adress:</label>
+            <input type="text" class="form-control" id="email"  name="email" value="{{user.email}}">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="text" class="form-control" id="password" placeholder="Enter new password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="text" class="form-control" id="age"  name="age" value="{{user.age}}">
+        </div>
+        <div class="form-group">
+            <label for="City">City:</label>
+            <input type="text" class="form-control" id="city" name="city" value="{{user.city}}">
+        </div>
+        <div class="form-group">
+            <label for="Homepage">Homepage:</label>
+            <input type="text" class="form-control" id="url" placeholder="Enter Homepage" name="url">
+        </div>
+        <button type="submit" class="btn btn-default">Update</button>
+    </form>
+</div>

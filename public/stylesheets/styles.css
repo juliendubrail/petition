@@ -1,3 +1,52 @@
+body{
+  background: rgb(245,245,245);
+  color: #70C1B3;
+  font-size: 25px;
+  font-family: Helvetica;
+}
+
+h1{
+    font-family: Courier;
+    color: #FF1654;
+    font-weight: lighter;
+    font-size: 25px;
+}
+
+h2 {
+  font-family: Courier;
+  color: #247BA0;
+  font-weight: lighter;
+  font-size: 8px;
+}
+
+a{
+  color: purple;
+}
+a:hover {
+  text-decoration: none;
+  color: yellow;
+}
+
+#header{
+  text-align: center;
+  background-image: url("https://unsplash.it/1300/600?random");
+  background-size: cover;
+  padding: 150px;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+}
+
+#footer{
+  padding: 30px;
+  background: rgb(30, 30, 30);
+  color: lightgrey;
+}
+
+.card{
+  padding: 50px;
+  font-weight: lighter;
+}
+
 #canvas {
     border-style: dashed;
 }

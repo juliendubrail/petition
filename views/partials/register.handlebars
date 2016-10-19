@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="form" method ="post" action="/thanks">
+    <form id="form" method ="post">
         <div class="form-group">
             <label for="email">First Name:</label>
             <input type="text" class="form-control" id="first" placeholder="Enter First name" name="firstname">
@@ -9,12 +9,13 @@
             <input type="text" class="form-control" id="family" placeholder="Enter Last Name" name="lastname">
         </div>
         <div class="form-group">
-            <label> Sign Here</label>
+            <label for="email">Email adress:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
         </div>
         <div class="form-group">
-            <canvas id="canvas" width="900" height="80"></canvas>
-            <input type="hidden" id="signature" name="signature">
+            <label for="pwd">Password:</label>
+            <input type="text" class="form-control" id="password" placeholder="Enter password" name="password">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Sign Up</button>
     </form>
 </div>

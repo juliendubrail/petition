@@ -42,6 +42,18 @@ pool.on('error', function(err) {
     console.log("the" + err);
 });
 
+//redis
+var redis = require('redis');
+var client = redis.createClient({
+    host: 'localhost',
+    port: 6379
+});
+
+client.on('error', function(err) {
+    console.log(err);
+});
+
+
 // var client = new pg.Client(dbUrl);
 // client.connect();
 var bcrypt = require('bcrypt');
@@ -76,9 +88,6 @@ function queryDatabase (str, params, callback) {
         });
     });
 }
-
-
-
 
 
 function insert(params, callback) {
@@ -164,10 +173,26 @@ function getSigners(callback) {
         else{
             console.log("Hey there");
             console.log(results);
-            callback(null, results.rows);
+            // callback(null, results.rows);
+            client.setex('signees', 60, results.rows, function(err){
+                if (err) {
+                    return console.log(err);
+                }
+
+                client.get('signees', function(err, data) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("the data is cached");
+                    callback(null, data);
+                });
+            });
         }
     });
 }
+
+
+
 
 function getCity(params, callback) {
     var query = "SELECT users.firstname, users.lastname, users_profiles.age, users_profiles.city, users_profiles.url FROM users JOIN users_profiles ON users.id = users_profiles.user_id WHERE users_profiles.city='" + params + "'";
@@ -279,7 +304,6 @@ function checkPassword(textEnteredInLoginForm, hashedPasswordFromDatabase, callb
 
 function getEmail(params, callback){
     var query = "SELECT * FROM users WHERE email=$1";
-    console.log(params);
     queryDatabase(query, params, function(err, results){
         if(err){
             callback(err);

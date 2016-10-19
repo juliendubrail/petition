@@ -127,13 +127,14 @@ app.post('/login', urlencodedParser, function(req, res){
     var db = require('./db.js');
     db.getEmail([login.email], function(err, results){
         if (err){
-            console.log("la loose" + err);
+            console.log("la loose 1 " + err);
         }
         else {
 
             db.checkPassword(login.password, results.password, function(err, answer){
                 if (err){
-                    console.log("la loose " + err);
+                    console.log("la loose 2 " + err);
+                    res.render('register');
                 }
                 else {
                     console.log("super");
